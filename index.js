@@ -4,6 +4,7 @@ const exec = require("@actions/exec");
 const fs = require("fs");
 const util = require("util");
 const Mustache = require("mustache");
+const os = require('os');
 
 const writeFile = util.promisify(fs.writeFile);
 const readFile = util.promisify(fs.readFile);
