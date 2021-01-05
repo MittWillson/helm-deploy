@@ -239,7 +239,9 @@ async function run() {
       deployment: context.payload.deployment,
     });
     
-    for (let repo in core.getInput('repos').split(os.EOL)) {
+    const repos = core.getInput('repos').split(os.EOL);
+    for (let i in repos) {
+      let repo = repos[i];
       let [name, ...url] = repo.split(' ');
       await exec.exec(helm, ["repo", "add", name, url.join('')]);
     }
