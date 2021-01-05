@@ -238,6 +238,9 @@ async function run() {
       deployment: context.payload.deployment,
     });
     
+    for (let repo in core.getInput('repos')) {
+      await exec.exec(helm, ["repo", "add", repo]);
+    }
     await exec.exec(helm, ["dependency", "build", chart]);
 
     // Remove the canary deployment before continuing.
