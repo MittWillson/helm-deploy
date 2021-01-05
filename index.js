@@ -237,6 +237,8 @@ async function run() {
       secrets,
       deployment: context.payload.deployment,
     });
+    
+    await exec.exec(helm, ["dependency", "build", chart]);
 
     // Remove the canary deployment before continuing.
     if (removeCanary) {
