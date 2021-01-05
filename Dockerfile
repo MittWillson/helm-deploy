@@ -11,9 +11,7 @@ RUN apk add --no-cache ca-certificates \
     curl -L ${BASE_URL}/${HELM_3_FILE} |tar xvz && \
     mv linux-amd64/helm /usr/bin/helm && \
     chmod +x /usr/bin/helm && \
-    rm -rf linux-amd64 && \
-    
-    helm init --client-only --stable-repo-url https://charts.bitnami.com/bitnami
+    rm -rf linux-amd64
 
 ENV PYTHONPATH "/usr/lib/python3.8/site-packages/"
 
